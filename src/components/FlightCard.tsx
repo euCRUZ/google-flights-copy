@@ -1,20 +1,19 @@
-import React from 'react';
-import { Clock, Plane, Leaf } from 'lucide-react';
-import { Flight } from '../types/flight';
-import { formatCurrency, formatTime } from '../utils/api';
+import React from "react"
+import { Clock, Plane, Leaf } from "lucide-react"
+import { Flight } from "../types/flight"
+import { formatCurrency, formatTime } from "../utils/api"
 
 interface FlightCardProps {
-  flight: Flight;
+  flight: Flight
 }
 
 export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
-  const outboundSegment = flight.outbound[0];
-  const lastOutboundSegment = flight.outbound[flight.outbound.length - 1];
+  const outboundSegment = flight.outbound[0]
+  const lastOutboundSegment = flight.outbound[flight.outbound.length - 1]
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700 p-6">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-        {/* Flight Info */}
         <div className="flex-1">
           <div className="flex items-center gap-4 mb-4">
             <div className="flex items-center gap-2">
@@ -31,7 +30,6 @@ export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
           </div>
 
           <div className="flex items-center gap-6">
-            {/* Departure */}
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-900 dark:text-white">
                 {formatTime(outboundSegment.departure.time)}
@@ -44,7 +42,6 @@ export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
               </div>
             </div>
 
-            {/* Flight Path */}
             <div className="flex-1 flex items-center">
               <div className="flex-1 border-t-2 border-gray-300 dark:border-gray-600 relative">
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-800 px-2">
@@ -59,7 +56,6 @@ export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
               </div>
             </div>
 
-            {/* Arrival */}
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-900 dark:text-white">
                 {formatTime(lastOutboundSegment.arrival.time)}
@@ -73,41 +69,42 @@ export const FlightCard: React.FC<FlightCardProps> = ({ flight }) => {
             </div>
           </div>
 
-          {/* Stops Info */}
           <div className="mt-3 text-sm text-gray-600 dark:text-gray-400">
             {flight.stops === 0 ? (
-              <span className="text-green-600 font-medium">Direto</span>
+              <span className="text-green-600 font-medium">Direct</span>
             ) : (
-              <span>{flight.stops} parada{flight.stops > 1 ? 's' : ''}</span>
+              <span>
+                {flight.stops} stop{flight.stops > 1 ? "s" : ""}
+              </span>
             )}
           </div>
         </div>
 
-        {/* Price and Actions */}
         <div className="flex flex-row lg:flex-col items-center gap-4">
           <div className="text-right">
             <div className="text-3xl font-bold text-gray-900 dark:text-white">
-              {formatCurrency(flight.price.amount, 'BRL')}
+              {formatCurrency(flight.price.amount, "USD")}
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">por pessoa</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">
+              per person
+            </div>
           </div>
 
           <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
-            Encontrar voos
+            Find flights
           </button>
         </div>
       </div>
 
-      {/* Carbon Emissions */}
       {flight.carbonEmissions && (
         <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
           <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
             <Leaf className="w-4 h-4 text-green-600" />
-            <span>{flight.carbonEmissions} kg CO₂ emissões</span>
-            <span className="text-green-600 font-medium">-23% emissões</span>
+            <span>{flight.carbonEmissions} kg CO₂ emissions</span>
+            <span className="text-green-600 font-medium">-23% emissions</span>
           </div>
         </div>
       )}
     </div>
-  );
-};
+  )
+}

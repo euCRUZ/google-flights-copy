@@ -1,5 +1,5 @@
-import React from 'react';
-import { Plane } from 'lucide-react';
+import React from "react"
+import { Plane } from "lucide-react"
 
 export const LoadingSpinner: React.FC = () => {
   return (
@@ -9,9 +9,13 @@ export const LoadingSpinner: React.FC = () => {
         <Plane className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 text-blue-600" />
       </div>
       <div className="mt-4 text-center">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Procurando voos</h3>
-        <p className="text-gray-600 dark:text-gray-400">Encontrando as melhores ofertas para você...</p>
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+          Searching for flights
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400">
+          Finding the best deals for you...
+        </p>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -40,10 +40,10 @@ function AppContent() {
         {!loading && !error && flights.length === 0 && totalResults === 0 && (
           <div className="text-center py-16">
             <div className="text-gray-500 dark:text-gray-400 text-lg">
-              Pesquise voos para começar
+              Search for flights to get started
             </div>
             <div className="text-gray-400 dark:text-gray-500 mt-2">
-              Digite suas cidades de partida e chegada acima
+              Enter your departure and arrival cities above
             </div>
           </div>
         )}
@@ -52,10 +52,10 @@ function AppContent() {
       <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center text-gray-500 dark:text-gray-400">
-            <p>© 2024 Voos. Construído com React e Sky Scrapper API.</p>
+            <p>© 2025 Flights. </p>
             <p className="mt-2 text-sm">
-              Esta é uma aplicação de demonstração mostrando práticas modernas
-              de desenvolvimento web.
+              This is a demo application showcasing modern web development
+              practices.
             </p>
           </div>
         </div>
